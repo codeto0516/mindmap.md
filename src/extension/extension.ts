@@ -72,8 +72,6 @@ class MindMapCustomTextEditorProvider
       });
     };
 
-    updateWebview();
-
     const changeSubscription = vscode.workspace.onDidChangeTextDocument(
       (e) => {
         if (e.document.uri.toString() !== document.uri.toString()) return;
@@ -99,6 +97,10 @@ class MindMapCustomTextEditorProvider
 
     webviewPanel.webview.onDidReceiveMessage(
       (message: { type: string; text?: string }) => {
+        if (message.type === "ready") {
+          updateWebview();
+          return;
+        }
         if (message.type === "save" && typeof message.text === "string") {
           const edit = new vscode.WorkspaceEdit();
           const fullRange = new vscode.Range(
