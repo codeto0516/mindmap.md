@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build:extension",
+      "type": "shell",
+      "command": "pnpm run build:extension",
+      "group": "build",
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "build:webview",
+      "type": "shell",
+      "command": "pnpm run build:webview",
+      "group": "build",
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "build:extension-and-webview",
+      "dependsOn": ["build:extension", "build:webview"],
+      "group": "build",
+      "presentation": { "reveal": "silent" }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+# ソース・開発用（パッケージには dist/extension.js と dist/webview/ のみ必要）
+src
+scripts
+node_modules
+
+# ビルド設定・テスト
+vite.config.ts
+vite.webview.config.ts
+vitest.config.ts
+setupTests.ts
+eslint.config.mjs
+postcss.config.mjs
+*.config.*
+tsconfig.json
+tsconfig.*.json
+*.tsbuildinfo
+test
+coverage
+test-results
+playwright-report
+
+# 開発用 HTML（Webview は dist/webview のビルド結果を使用）
+index.html
+index-webview.html
+public
+
+# スタンドアロン用ビルド成果物（拡張で使うのは dist/extension.js と dist/webview/）
+dist/index.html
+dist/favicon.ico
+dist/assets
+
+# 環境・その他
+.env
+.env.*
+docs
+.cursor
+.vscode
+.gitignore
+.prettierrc
+*.md
+!README.md
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
