@@ -44,9 +44,27 @@ const eslintConfig = defineConfig([
         "warn",
         { allowConstantExport: true },
       ],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_" },
+      ],
     },
   },
   eslintConfigPrettier,
+  {
+    files: ["scripts/**/*.mjs"],
+    languageOptions: {
+      globals: {
+        console: "readonly",
+        process: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
+        module: "readonly",
+        require: "readonly",
+        Buffer: "readonly",
+      },
+    },
+  },
   globalIgnores([
     "dist/**",
     "node_modules/**",
