@@ -11,7 +11,7 @@
 ## 技術スタック
 
 - **フロント**: React 19, Vite 6, Tailwind CSS, @xyflow/react, dagre
-- **状態・データ**: TanStack Query, ドメイン駆動設計（Application / Domain / Infrastructure / Presentation 層）
+- **状態・データ**: ドメイン駆動設計（Application / Domain / Infrastructure / Presentation 層）
 - **テスト**: Vitest, Testing Library
 
 ## 開発の始め方
