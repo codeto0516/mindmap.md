@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@xyflow/react/dist/base.css";
 
 /* .dark クラスで dark: を有効にする（VSCode 拡張 Webview のテーマ連携用） */
 @custom-variant dark (&&:where(.dark, .dark *));

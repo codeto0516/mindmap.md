@@ -11,6 +11,7 @@ import {
 } from "react";
 import {
   ReactFlow,
+  ReactFlowProvider,
   Background,
   Node,
   SelectionMode,
@@ -643,43 +644,45 @@ export default function MindMap({
   );
 
   return (
-    <div
-      className="w-full h-full bg-zinc-50 dark:bg-zinc-900 relative"
-      tabIndex={-1}
-      onKeyDown={handleKeyDown}
-    >
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onNodeClick={handleNodeClick}
-        onNodeDoubleClick={handleNodeDoubleClick}
-        onPaneClick={() => {
-          programmaticSelectionRef.current = null;
-          setSelectedNodeIds([]);
-          endEdit();
-        }}
-        onSelectionChange={handleSelectionChange}
-        selectionOnDrag={true}
-        selectionMode={SelectionMode.Partial}
-        nodeTypes={nodeTypes}
-        fitView
-        nodesDraggable={false}
-        nodesConnectable={false}
-        panOnDrag={false}
-        panOnScroll={true}
-        zoomOnDoubleClick={false}
-        proOptions={{ hideAttribution: true }}
-        defaultEdgeOptions={{
-          type: "smoothstep",
-          animated: false,
-          style: { stroke: "rgb(161 161 170)", strokeWidth: 2 },
-        }}
+    <ReactFlowProvider>
+      <div
+        className="w-full h-full bg-zinc-50 dark:bg-zinc-900 relative"
+        tabIndex={-1}
+        onKeyDown={handleKeyDown}
       >
-        <Background />
-        <CenterOnFocusedNode ref={centerOnNodeRef} />
-      </ReactFlow>
-    </div>
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onNodeClick={handleNodeClick}
+          onNodeDoubleClick={handleNodeDoubleClick}
+          onPaneClick={() => {
+            programmaticSelectionRef.current = null;
+            setSelectedNodeIds([]);
+            endEdit();
+          }}
+          onSelectionChange={handleSelectionChange}
+          selectionOnDrag={true}
+          selectionMode={SelectionMode.Partial}
+          nodeTypes={nodeTypes}
+          fitView
+          nodesDraggable={false}
+          nodesConnectable={false}
+          panOnDrag={false}
+          panOnScroll={true}
+          zoomOnDoubleClick={false}
+          proOptions={{ hideAttribution: true }}
+          defaultEdgeOptions={{
+            type: "smoothstep",
+            animated: false,
+            style: { stroke: "rgb(161 161 170)", strokeWidth: 2 },
+          }}
+        >
+          <Background />
+          <CenterOnFocusedNode ref={centerOnNodeRef} />
+        </ReactFlow>
+      </div>
+    </ReactFlowProvider>
   );
 }

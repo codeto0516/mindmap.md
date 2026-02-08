@@ -21,6 +21,7 @@ vi.mock("@xyflow/react", () => {
     "onEdgesChange",
   ];
   return {
+    ReactFlowProvider: vi.fn(({ children }: { children: React.ReactNode }) => <>{children}</>),
     ReactFlow: vi.fn(({ children, onNodeClick, onNodeDoubleClick, onPaneClick, onSelectionChange, nodes, ...rest }) => {
       const domProps = Object.fromEntries(
         Object.entries(rest).filter(([key]) => !reactFlowOptionKeys.includes(key))
