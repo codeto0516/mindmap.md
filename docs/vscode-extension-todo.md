@@ -55,7 +55,7 @@
   - 「マインドマップで開く」(`mindmap-md.openAsMindMap`) を実装。現在の .md を `vscode.openWith(uri, viewType)` でマインドマップで開く
   - `contributes.commands` と `contributes.menus.commandPalette` に登録済み。`editor/title/context`（エディタタブの⋯メニュー）にも登録しており、.md を開いているとき「マインドマップで開く」が表示される
 - [x] **エディタタブとの対応**
-  - 同じ .md を「テキスト」と「マインドマップ」の両方で開ける（Reopen with で切り替え）。Custom Editor の selector で `*.md` のため、既定はテキストで開き、必要に応じてマインドマップで開く運用
+  - 同じ .md を「テキスト」と「マインドマップ」の両方で開ける（Reopen with で切り替え）。Custom Editor の selector で `*.md` に `priority: "option"` を指定しているため、既定はテキストで開き、エディタの⋯メニュー「マインドマップで開く」や Reopen with で必要に応じてマインドマップで開く運用
 - [x] **設定項目（テーマ）**
   - `mindmap-md.theme`（auto | light | dark）を contributes に追加。`getThemeForWebview()` で取得し、`init` / `theme` メッセージで Webview に渡す。`onDidChangeActiveColorTheme` でテーマ変更時も送信。Webview はルートに `dark` クラスを付与（main.css で `@custom-variant dark` を定義）。フォントサイズ・レイアウト定数は未対応
 

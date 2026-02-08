@@ -13,7 +13,8 @@
       {
         "viewType": "mindmap.md.markdown",
         "displayName": "マインドマップ",
-        "selector": [{ "filenamePattern": "*.md" }]
+        "selector": [{ "filenamePattern": "*.md" }],
+        "priority": "option"
       }
     ],
     "commands": [
