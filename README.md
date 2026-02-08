@@ -55,6 +55,7 @@ pnpm preview
 
 ## ドキュメント
 
-- [docs/note.md](docs/note.md) - プロダクトノート・コンセプト
+- [docs/vscode-extension-todo.md](docs/vscode-extension-todo.md) - VSCode/Cursor 拡張機能化の TODO
 - [docs/map-json-design.md](docs/map-json-design.md) - マークダウン形式での保存設計
-- [docs/node-requirements.md](docs/node-requirements.md) - Node.js バージョン要件
+- [docs/node-requirements.md](docs/node-requirements.md) - ノード（コンポーネント）機能要件
+- [docs/layout-algorithm.md](docs/layout-algorithm.md) - レイアウトアルゴリズム
