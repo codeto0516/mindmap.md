@@ -25,10 +25,15 @@
     ],
     "menus": {
       "commandPalette": [{ "command": "mindmap-md.openAsMindMap" }],
-      "editor/title/context": [
+      "editor/title": [
         {
           "command": "mindmap-md.openAsMindMap",
-          "when": "resourceLangId == markdown"
+          "group": "navigation"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "mindmap-md.openAsMindMap"
         }
       ]
     },
