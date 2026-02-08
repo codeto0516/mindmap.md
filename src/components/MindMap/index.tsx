@@ -18,7 +18,7 @@ import {
   NodeChange,
   useReactFlow,
 } from "@xyflow/react";
-import type { NodeTypes } from "@xyflow/react";
+import type { DefaultEdgeOptions, NodeTypes } from "@xyflow/react";
 import type { MindNode } from "@/types/mind-node";
 import { MindMapNode, NodeData } from "@/utils/types";
 import { DEFAULTS } from "@/utils/constants";
@@ -673,11 +673,14 @@ export default function MindMap({
           panOnScroll={true}
           zoomOnDoubleClick={false}
           proOptions={{ hideAttribution: true }}
-          defaultEdgeOptions={{
-            type: "smoothstep",
-            animated: false,
-            style: { stroke: "rgb(161 161 170)", strokeWidth: 2 },
-          }}
+          defaultEdgeOptions={
+            {
+              type: "smoothstep",
+              animated: false,
+              style: { stroke: "rgb(161 161 170)", strokeWidth: 2 },
+              pathOptions: { borderRadius: 8, offset: 12 },
+            } as DefaultEdgeOptions
+          }
         >
           <Background />
           <CenterOnFocusedNode ref={centerOnNodeRef} />

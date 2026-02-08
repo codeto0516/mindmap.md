@@ -1,5 +1,14 @@
 @import "tailwindcss";
-@import "@xyflow/react/dist/base.css";
+@import "@xyflow/react/dist/style.css";
 
 /* .dark クラスで dark: を有効にする（VSCode 拡張 Webview のテーマ連携用） */
 @custom-variant dark (&&:where(.dark, .dark *));
+
+/* React Flow の選択ボックスを非表示（mind-expo と同様） */
+.react-flow__nodesselection-rect,
+.react-flow__nodesselection {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
