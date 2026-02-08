@@ -18,7 +18,7 @@ import {
   useReactFlow,
 } from "@xyflow/react";
 import type { NodeTypes } from "@xyflow/react";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 import { MindMapNode, NodeData } from "../../utils/types";
 import { DEFAULTS } from "../../utils/constants";
 import { useMindMapState } from "../../hooks/useMindMapState";

@@ -1,6 +1,5 @@
 /**
  * アプリケーション層のエントリポイント。
- * 拡張機能化に伴いワークスペース・フォルダ・お気に入り・ユーザーは削除済み。
+ * 永続化をマークダウンファイルに一本化したため、現状はエクスポートなし。
+ * マークダウン ⇔ MindNode は @/markdown を参照。
  */
-export { getMap } from "./map/get-map";
-export { getMapById } from "./map/get-map-by-id";

@@ -1,10 +1,9 @@
-import { describe, it, expect } from "vitest";
+import { describe, it } from "vitest";
 
-import * as app from "./index";
+import "./index";
 
 describe("application/index", () => {
-  it("map のユースケースをエクスポートしている", () => {
-    expect(typeof app.getMap).toBe("function");
-    expect(typeof app.getMapById).toBe("function");
+  it("モジュールが読み込める", () => {
+    // 永続化をマークダウンに一本化したため、現状はエクスポートなし
   });
 });

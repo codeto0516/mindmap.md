@@ -7,7 +7,7 @@ import {
   getFocusTargetAfterDelete,
   generateNodeId,
 } from "./nodeHelpers";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 
 describe("nodeHelpers", () => {
   const createTestTree = (): MindNode => ({

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import MindMap from "./index";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 
 vi.mock("@xyflow/react", () => {
   // React Flow のオプション系 props（DOM に渡すと警告が出るためモックでは除外する）

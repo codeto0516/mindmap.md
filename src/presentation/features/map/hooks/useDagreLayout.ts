@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 import { MindMapNode, MindMapEdge } from "../utils/types";
 import { findNodeInTree, filterCollapsed } from "../utils/nodeHelpers";
 import { DEFAULTS } from "../utils/constants";

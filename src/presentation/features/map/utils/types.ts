@@ -1,5 +1,5 @@
 import { Node, Edge } from "@xyflow/react";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 
 /**
  * React Flow用のノードデータ型

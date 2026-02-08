@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { renderHook } from "@testing-library/react";
 import { useDagreLayout } from "./useDagreLayout";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 
 describe("useDagreLayout", () => {
   it("単一ノードのレイアウトを計算する", () => {

@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { getNearestNodeInDirectionByHierarchy } from "./hierarchyNavigation";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 import type { NodeWithBounds } from "./spatialNavigation";
 
 describe("hierarchyNavigation", () => {

@@ -11,7 +11,7 @@
 ## 技術スタック
 
 - **フロント**: React 19, Vite 6, Tailwind CSS, @xyflow/react, dagre
-- **状態・データ**: ドメイン駆動設計（Application / Domain / Infrastructure / Presentation 層）
+- **状態・データ**: MindNode 型でツリーを表現。永続化はマークダウンファイル（見出し階層でマインドマップを表現）のみ。
 - **テスト**: Vitest, Testing Library
 
 ## 開発の始め方
@@ -56,5 +56,5 @@ pnpm preview
 ## ドキュメント
 
 - [docs/note.md](docs/note.md) - プロダクトノート・コンセプト
-- [docs/map-json-design.md](docs/map-json-design.md) - マップ JSON の保存設計
+- [docs/map-json-design.md](docs/map-json-design.md) - マークダウン形式での保存設計
 - [docs/node-requirements.md](docs/node-requirements.md) - Node.js バージョン要件

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, startTransition, useMemo } from "react";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 
 /**
  * マインドマップの状態管理を行うカスタムフック

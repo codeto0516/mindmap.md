@@ -1,5 +1,5 @@
 import { useCallback, useRef, useEffect } from "react";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 import {
   updateNodeInTree,
   findNodeInTree,

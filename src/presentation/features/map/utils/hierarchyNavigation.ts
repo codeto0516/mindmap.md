@@ -1,4 +1,4 @@
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 import { filterCollapsed, getDepthMap } from "./nodeHelpers";
 import type { NodeWithBounds, ArrowDirection } from "./spatialNavigation";
 

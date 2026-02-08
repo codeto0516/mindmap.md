@@ -1,4 +1,4 @@
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 
 /**
  * ノードツリー内のノードを更新する汎用関数

@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import MindMap from "@/presentation/features/map/components/MindMap";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 import "./main.css";
 
 const defaultData: MindNode = {

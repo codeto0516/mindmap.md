@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { renderHook, act } from "@testing-library/react";
 import { useMindMapState } from "./useMindMapState";
-import type { MindNode } from "@/application/map/mind-node";
+import type { MindNode } from "@/types/mind-node";
 
 describe("useMindMapState", () => {
   const createInitialData = (): MindNode => ({
