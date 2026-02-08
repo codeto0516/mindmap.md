@@ -1,0 +1,45 @@
+---
+description: 実装時の基本思想（useEffect回避・イベント駆動・責務分離・テスト）
+globs: **/*.{ts,tsx}
+alwaysApply: false
+---
+
+# 実装時の基本思想
+
+## useEffect はできるだけ使わない
+
+- 副作用で状態を揃えるより、**イベントハンドラで直接処理**することを優先する
+- `onKeyDown`・`onChange`・`onSubmit` など、ユーザー操作や入力に紐づくロジックはイベントハンドラ内で完結させる
+- 「マウント時に〇〇する」が必要なときだけ useEffect を検討し、それでも「どのイベントで起きるか」を明確にする
+
+### 避けたい例
+
+```tsx
+// ❌ キー入力のたびに state を更新し、useEffect で反応
+const [query, setQuery] = useState("");
+useEffect(() => {
+  doSearch(query);
+}, [query]);
+```
+
+### 推奨例
+
+```tsx
+// ✅ イベントハンドラで完結
+const handleKeyDown = (e: React.KeyboardEvent) => {
+  if (e.key === "Enter") doSearch(query);
+};
+const handleSubmit = () => doSearch(query);
+```
+
+## 責務を分けてコンポーネント思考で考える
+
+- 1コンポーネント＝1責務。表示・入力・ナビゲーションなどは分離する
+- 共通ロジックはカスタムフックに切り出し、UI は描画とイベント委譲に集中させる
+- 親は「何をするか」、子は「どう表示・どう反応するか」に責任を持つ
+
+## テストはできる限り書く
+
+- ユーザー操作やイベント経路（onKeyDown → ハンドラ → 副作用）はテストでカバーする
+- コンポーネント・フック・ユーティリティごとに責務に応じたテストを用意する
+- 変更の影響範囲が分かるよう、重要な振る舞いにはテストを残す

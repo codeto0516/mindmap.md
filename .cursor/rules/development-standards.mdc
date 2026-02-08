@@ -1,0 +1,170 @@
+---
+description: 開発における基本的な思想と実装標準（コンポーネント思考、TDD、JSDoc）
+globs: **/*.{ts,tsx}
+alwaysApply: false
+---
+
+# 開発標準
+
+以下は実装する上での基本的な思想です。
+
+## コンポーネント思考
+
+- コンポーネントは単一責任の原則に従い、再利用可能で独立した単位として設計する
+- ロジックはカスタムフックに分離し、コンポーネントは主にUIの描画に集中する
+- 状態管理は適切なスコープで行い、不要な再レンダリングを避ける
+
+## 型安全性
+
+- **`any` と `unknown` の使用は禁止する**
+- すべての値には適切な型を定義し、型安全性を保つ
+- 型が不明な場合は、適切な型定義を作成するか、型ガードを使用する
+- 外部ライブラリの型が不明な場合は、型定義ファイル（`.d.ts`）を作成する
+
+### 良い例
+
+```typescript
+// ✅ 適切な型定義
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+function getUser(id: number): User {
+  // ...
+}
+
+// ✅ 型ガードを使用
+function isString(value: unknown): value is string {
+  return typeof value === 'string';
+}
+
+function processValue(value: unknown) {
+  if (isString(value)) {
+    // value は string として扱える
+    console.log(value.toUpperCase());
+  }
+}
+```
+
+### 悪い例
+
+```typescript
+// ❌ any を使用
+function processData(data: any) {
+  // ...
+}
+
+// ❌ unknown を適切に処理せずに使用
+function processValue(value: unknown) {
+  console.log(value.toUpperCase()); // エラーになる可能性がある
+}
+
+// ❌ 型アサーションを乱用
+const data = someValue as any;
+```
+
+## TDD（テスト駆動開発）
+
+### カバレッジ100%を目指す
+
+- すべてのコンポーネント、関数、カスタムフックに対してテストを作成する
+- テストカバレッジは100%を維持する
+
+### テストの維持
+
+- **コードを修正したら、必ず対応するテストも修正する**
+- 修正後は必ずテストを実行し、すべてのテストがクリアすることを確認する
+- テストが失敗した場合は、コードまたはテストのどちらかを修正してからコミットする
+
+### テスト実行
+
+```bash
+# テストを実行
+npm test
+
+# カバレッジを確認
+npm run test:coverage
+```
+
+## JSDocの更新
+
+- **コンポーネントや関数を追加・変更したら、必ずJSDocを更新する**
+- すべての公開API（コンポーネント、関数、カスタムフック）にJSDocコメントを記述する
+- JSDocには以下を含める：
+  - 機能の説明
+  - `@param` - パラメータの説明
+  - `@returns` - 戻り値の説明
+  - `@example` - 使用例（可能な場合）
+
+### 良い例
+
+```typescript
+/**
+ * マインドマップのメインコンポーネント
+ * 
+ * 状態管理、レイアウト計算、各種フックを統合してマインドマップを表示します。
+ * 
+ * @param props - MindMapコンポーネントのProps
+ * @param props.initialData - 初期データ
+ * @param props.onDataChange - データ変更時のコールバック
+ * @returns マインドマップを表示するコンポーネント
+ * 
+ * @example
+ * ```tsx
+ * <MindMap
+ *   initialData={rootNode}
+ *   onDataChange={(data) => console.log("Data changed:", data)}
+ * />
+ * ```
+ */
+export default function MindMap({ initialData, onDataChange }: MindMapProps) {
+  // ...
+}
+```
+
+### 悪い例
+
+```typescript
+// ❌ JSDocがない
+export default function MindMap({ initialData, onDataChange }: MindMapProps) {
+  // ...
+}
+
+// ❌ 説明が不十分
+/**
+ * MindMapコンポーネント
+ */
+export default function MindMap({ initialData, onDataChange }: MindMapProps) {
+  // ...
+}
+```
+
+## コミットメッセージ
+
+- **コミットメッセージは必ず日本語で記述する**
+- コミットメッセージは変更内容が明確に分かるように記述する
+- 適切な動詞を使用する（追加、修正、削除、リファクタリングなど）
+
+### 良い例
+
+```
+feat: マインドマップにノード削除機能を追加
+fix: ドラッグ時の位置計算バグを修正
+refactor: レイアウト計算ロジックをリファクタリング
+test: MindMapコンポーネントのテストを追加
+docs: READMEにセットアップ手順を追加
+```
+
+### 悪い例
+
+```
+// ❌ 英語で記述
+feat: Add node deletion feature
+fix: Fix drag position calculation bug
+
+// ❌ 内容が不明確
+update: changes
+fix: bug fix
+```
