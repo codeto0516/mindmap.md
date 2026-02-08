@@ -1,28 +1,60 @@
 # mindmap.md
 
-マークダウンをマインドマップで編集できる拡張機能（Vite + React）。
+**マークダウンファイルをマインドマップとして編集できる** VSCode / Cursor 用の拡張機能です。
 
-## Getting Started
+## 概要
 
-開発サーバーを起動:
+- エディタ内でマークダウンをツリー構造のマインドマップとして表示・編集できます。
+- ノードの追加・編集・削除・ドラッグによる階層変更など、マインドマップとしての操作をサポートします。
+- フロントは Vite + React で構築し、DAG レイアウト（dagre）やドラッグ＆ドロップ（@dnd-kit）などを利用しています。
+
+## 技術スタック
+
+- **フロント**: React 19, Vite 6, Tailwind CSS, @xyflow/react, dagre
+- **状態・データ**: TanStack Query, ドメイン駆動設計（Application / Domain / Infrastructure / Presentation 層）
+- **テスト**: Vitest, Testing Library
+
+## 開発の始め方
+
+### 必要環境
+
+- Node.js（[docs/node-requirements.md](docs/node-requirements.md) を参照）
+- pnpm
+
+### セットアップ
+
+```bash
+pnpm install
+```
+
+### 開発サーバー（マインドマップ UI の開発）
 
 ```bash
 pnpm dev
 ```
 
-ブラウザで [http://localhost:5173](http://localhost:5173) を開いてください。
+ブラウザで [http://localhost:5173](http://localhost:5173) を開くと、マインドマップ UI を単体で確認できます。エントリは `src/main.tsx` です。ファイルを編集するとホットリロードで反映されます。
 
-エントリは `src/main.tsx` です。ファイルを編集するとホットリロードで反映されます。
-
-## ビルド・プレビュー
+### ビルド・プレビュー
 
 ```bash
 pnpm build
 pnpm preview
 ```
 
-## その他
+## その他のコマンド
 
-- **Lint**: `pnpm lint`
-- **単体テスト**: `pnpm test`
-- **DB シード**: `pnpm db:seed`
+| コマンド             | 説明                       |
+| -------------------- | -------------------------- |
+| `pnpm lint`          | ESLint でコードチェック    |
+| `pnpm test`          | Vitest で単体テスト実行    |
+| `pnpm test:ui`       | Vitest UI でテスト実行     |
+| `pnpm test:coverage` | カバレッジ付きでテスト実行 |
+| `pnpm format`        | Prettier でフォーマット    |
+| `pnpm format:check`  | フォーマットチェック       |
+
+## ドキュメント
+
+- [docs/note.md](docs/note.md) - プロダクトノート・コンセプト
+- [docs/map-json-design.md](docs/map-json-design.md) - マップ JSON の保存設計
+- [docs/node-requirements.md](docs/node-requirements.md) - Node.js バージョン要件
