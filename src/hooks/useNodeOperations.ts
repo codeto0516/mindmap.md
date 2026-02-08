@@ -5,8 +5,8 @@ import {
   findNodeInTree,
   findParentNode,
   generateNodeId,
-} from "../utils/nodeHelpers";
-import { DEFAULTS } from "../utils/constants";
+} from "@/utils/nodeHelpers";
+import { DEFAULTS } from "@/utils/constants";
 
 /**
  * useNodeOperationsフックのProps

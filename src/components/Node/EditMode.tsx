@@ -5,7 +5,7 @@ import type { MindNode } from "@/types/mind-node";
 import {
   NODE_EDIT_CONFIG,
   NODE_CARD_SELECTOR,
-} from "../../utils/constants";
+} from "@/utils/constants";
 
 interface Props {
   id: string;

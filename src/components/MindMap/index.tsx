@@ -19,14 +19,14 @@ import {
 } from "@xyflow/react";
 import type { NodeTypes } from "@xyflow/react";
 import type { MindNode } from "@/types/mind-node";
-import { MindMapNode, NodeData } from "../../utils/types";
-import { DEFAULTS } from "../../utils/constants";
-import { useMindMapState } from "../../hooks/useMindMapState";
-import { useDagreLayout } from "../../hooks/useDagreLayout";
-import { useNodeOperations } from "../../hooks/useNodeOperations";
-import { Node as NodeComponent } from "../Node";
-import { getNearestNodeInDirectionByHierarchy } from "../../utils/hierarchyNavigation";
-import { getFocusTargetAfterDelete } from "../../utils/nodeHelpers";
+import { MindMapNode, NodeData } from "@/utils/types";
+import { DEFAULTS } from "@/utils/constants";
+import { useMindMapState } from "@/hooks/useMindMapState";
+import { useDagreLayout } from "@/hooks/useDagreLayout";
+import { useNodeOperations } from "@/hooks/useNodeOperations";
+import { Node as NodeComponent } from "@/components/Node";
+import { getNearestNodeInDirectionByHierarchy } from "@/utils/hierarchyNavigation";
+import { getFocusTargetAfterDelete } from "@/utils/nodeHelpers";
 
 /**
  * ノードタイプの定義

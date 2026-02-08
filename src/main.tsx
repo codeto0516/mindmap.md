@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import MindMap from "@/presentation/features/map/components/MindMap";
+import MindMap from "@/components/MindMap";
 import type { MindNode } from "@/types/mind-node";
 import "./main.css";
 

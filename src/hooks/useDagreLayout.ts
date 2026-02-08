@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import type { MindNode } from "@/types/mind-node";
-import { MindMapNode, MindMapEdge } from "../utils/types";
-import { findNodeInTree, filterCollapsed } from "../utils/nodeHelpers";
-import { DEFAULTS } from "../utils/constants";
+import { MindMapNode, MindMapEdge } from "@/utils/types";
+import { findNodeInTree, filterCollapsed } from "@/utils/nodeHelpers";
+import { DEFAULTS } from "@/utils/constants";
 
 /**
  * ノードの高さ（ピクセル）（未計測時のデフォルト）

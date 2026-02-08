@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { NODE_WIDTH_CONFIG } from "../../utils/constants";
+import { NODE_WIDTH_CONFIG } from "@/utils/constants";
 
 interface Props {
   /** 現在のノード幅 */

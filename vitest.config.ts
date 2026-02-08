@@ -14,7 +14,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
-      include: ["src/infrastructure/**/*.ts", "src/infrastructure/**/*.tsx", "src/application/**/*.ts"],
+      include: ["src/**/*.ts", "src/**/*.tsx"],
       exclude: [
         "node_modules/",
         "**/*.test.ts",
@@ -29,7 +29,6 @@ export default defineConfig({
         "src/app/**",
         "public/**",
         ".next/**",
-        "src/infrastructure/repositories/prisma/**",
       ],
     },
   },

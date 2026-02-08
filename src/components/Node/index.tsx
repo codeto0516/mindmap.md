@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useLayoutEffect, useState, useCallback } from "react";
-import { NodeData } from "../../utils/types";
-import { DEFAULTS } from "../../utils/constants";
+import { NodeData } from "@/utils/types";
+import { DEFAULTS } from "@/utils/constants";
 import { RightHandle } from "./RightHandle";
 import { LeftHandle } from "./LeftHandle";
 import { EditMode } from "./EditMode";
